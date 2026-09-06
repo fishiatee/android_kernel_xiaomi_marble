@@ -59,6 +59,8 @@ jobs:
         run: |
           cd ~
           git clone https://github.com/tiann/KernelSU.git
+          cd KernelSU
+          git reset --hard 3497a56261564ee7fca494e3bfa0fac80118a34d
           cd $GITHUB_WORKSPACE
           ./build_bouquet_ci.sh --noccache --noclean --ksu -- Image
           cp ~/Bouquet_marble_out/Image_ksu* ~/dist/
@@ -67,6 +69,8 @@ jobs:
         run: |
           cd ~
           git clone https://gitlab.com/simonpunk/susfs4ksu.git -b gki-android12-5.10 --depth=1
+          cd susfs4ksu
+          git reset --hjard ec785f47d49f7b3871ca9356f450411020af7017
           cd $GITHUB_WORKSPACE
           ./build_bouquet_ci.sh --noccache --susfs -- Image
           cp ~/Bouquet_marble_out/Image_susfs* ~/dist/
