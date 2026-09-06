@@ -141,6 +141,9 @@ if [ "$(${KDIR}/scripts/config --file ${KDIR}/out/.config -s CFI_FORCE_SKIP_CHEC
 	echo -e "${yellow}Warning: CFI checks is disabled! $white"
 fi
 
+# nomount
+curl https://raw.githubusercontent.com/maxsteeel/nomount/refs/heads/dev/kernel/setup.sh | bash -
+
 t_start=$(date +"%s")
 
 make $make_flags KCFLAGS="$make_kcflags" KBUILD_LDFLAGS="$make_kbuild_ldflags" -j$(nproc --all) $make_target
